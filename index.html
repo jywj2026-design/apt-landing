@@ -11,10 +11,10 @@
             --white: #ffffff;
             --primary: #191F28;
             --blue: #3182F6;
-            --red: #E64937; /* 긴급 컬러 */
+            --red: #E64937; 
             --gold: #BFA97A;
-            --kakao: #FEE500; /* 경고/카카오 컬러 */
-            --naver: #03C75A; /* 네이버 컬러 */
+            --kakao: #FEE500; 
+            --naver: #03C75A; 
             --content-width: 500px;
         }
 
@@ -22,7 +22,7 @@
         
         body { 
             font-family: 'Pretendard', sans-serif; 
-            background-color: #333; /* 배경을 어둡게 해서 컨텐츠 집중도 향상 */
+            background-color: #333; 
             display: flex; 
             justify-content: center;
             line-height: 1.35;
@@ -33,7 +33,7 @@
             max-width: var(--content-width);
             background-color: var(--white);
             min-height: 100vh;
-            padding-bottom: 180px; /* 하단 버튼 영역 확보 */
+            padding-bottom: 210px; /* 여백 축소: 280px -> 210px */
         }
 
         /* --- 섹션 공통 --- */
@@ -42,24 +42,23 @@
         h2 { font-size: 1.15rem; font-weight: 800; color: var(--primary); margin-bottom: 15px; letter-spacing: -0.5px; display: flex; align-items: center; gap: 6px; }
         h2::before { content:''; display:block; width:4px; height:18px; background:var(--primary); }
 
-        /* --- HERO: 임팩트 --- */
+        /* --- HERO --- */
         .hero {
             background: var(--primary);
             color: white;
-            padding: 50px 20px 40px; /* 상단 여백 확보 */
+            padding: 50px 20px 40px;
             text-align: center;
         }
 
-        /* 긴급 배너 스타일 */
         .urgent-banner {
             display: inline-block;
-            font-size: 1.6rem; /* 폰트 사이즈 대폭 확대 */
+            font-size: 1.6rem;
             font-weight: 900;
-            padding: 12px 30px; /* 박스 크기 확대 */
+            padding: 12px 30px;
             border-radius: 100px;
             margin-bottom: 25px;
-            border: 4px solid var(--kakao); /* 노란색 경고 테두리 */
-            box-shadow: 0 0 30px rgba(230, 73, 55, 0.5); /* 붉은색 광채 */
+            border: 4px solid var(--kakao);
+            box-shadow: 0 0 30px rgba(230, 73, 55, 0.5);
             animation: siren-flash 0.8s steps(2, start) infinite;
         }
         @keyframes siren-flash {
@@ -81,21 +80,20 @@
         .target-item p { font-size: 0.75rem; color: #666; }
         .target-item::after { content:'✔'; position:absolute; top:10px; right:10px; font-size:10px; color:var(--blue); }
 
-        /* 하단 텍스트 스타일 (컨테이너에 적용) */
         .target-grid-container {
-            position: relative; /* 가상요소 기준점 */
-            margin-bottom: 35px; /* 하단 텍스트 공간 넉넉히 확보 */
+            position: relative;
+            margin-bottom: 35px;
         }
 
         .target-grid-container::after {
-            content: "※ 1순위 대상자 포함"; /* 텍스트 내용 */
+            content: "※ 1순위 대상자 포함";
             position: absolute;
-            bottom: -30px; /* 그리드 바깥 하단에 위치 */
-            left: 0; width: 100%; /* 전체 너비 사용 */
+            bottom: -30px;
+            left: 0; width: 100%;
             text-align: center;
-            font-size: 16px; /* 폰트 크기 16px */
-            color: #444; /* 가독성을 위해 약간 진하게 */
-            font-weight: 700; /* 강조 */
+            font-size: 16px;
+            color: #444;
+            font-weight: 700;
             letter-spacing: -0.5px;
         }
 
@@ -109,28 +107,50 @@
         .trust-box p { font-size: 0.85rem; opacity: 0.8; margin-bottom: 15px; }
         .safe-badge { border: 1px solid rgba(255,255,255,0.3); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; display: inline-block; }
 
-        /* --- STICKY CTA (수정됨) --- */
+        /* --- FOOTER (사업자정보 + 추가문구) - 여백 대폭 축소 --- */
+        .footer-biz-info {
+            padding: 12px 20px; /* 상하 패딩 절반 이하로 축소 (30px -> 12px) */
+            background: #fcfcfc;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+        .biz-text {
+            color: #999;
+            font-size: 11px;
+            line-height: 1.4;
+            margin-bottom: 6px; /* 아래 간격 축소 (15px -> 6px) */
+        }
+        .biz-text b { color: #777; font-weight: 700; }
+        
+        .main-consulting-text {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        /* --- STICKY CTA --- */
         .sticky-btn {
             position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: var(--content-width);
-            background: white; padding: 15px 15px 30px; 
+            background: white; padding: 12px 15px 20px; /* 패딩 축소 */
             box-shadow: 0 -5px 20px rgba(0,0,0,0.1); z-index: 999; 
-            display: flex; flex-direction: column; gap: 8px; /* 세로 정렬 및 간격 추가 */
+            display: flex; flex-direction: column; gap: 6px; 
             justify-content: center;
         }
         .btn-kakao {
             background: var(--kakao); color: #3b1e1e; width: 100%;
-            font-size: 1.2rem; font-weight: 900; display: flex; align-items: center; justify-content: center; gap: 8px;
-            padding: 16px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 15px rgba(254, 229, 0, 0.5);
+            font-size: 1.15rem; font-weight: 900; display: flex; align-items: center; justify-content: center; gap: 8px;
+            padding: 14px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 15px rgba(254, 229, 0, 0.4);
             animation: pulse 1.5s infinite;
         }
         .btn-naver {
             background: var(--naver); color: white; width: 100%;
-            font-size: 1.2rem; font-weight: 900; display: flex; align-items: center; justify-content: center; gap: 8px;
-            padding: 16px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 15px rgba(3, 199, 90, 0.4);
+            font-size: 1.15rem; font-weight: 900; display: flex; align-items: center; justify-content: center; gap: 8px;
+            padding: 14px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 15px rgba(3, 199, 90, 0.3);
         }
         
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
-        .blink-text { animation: blink-text 1s infinite alternate; color: var(--red); font-weight: 900; font-size: 0.9rem; position: absolute; top: -15px; left:50%; transform:translateX(-50%); background: white; padding: 4px 12px; border-radius: 20px; border: 2px solid var(--red); box-shadow: 0 2px 5px rgba(0,0,0,0.1); width: max-content;}
+        .blink-text { animation: blink-text 1s infinite alternate; color: var(--red); font-weight: 900; font-size: 0.85rem; position: absolute; top: -12px; left:50%; transform:translateX(-50%); background: white; padding: 3px 10px; border-radius: 20px; border: 2px solid var(--red); box-shadow: 0 2px 5px rgba(0,0,0,0.1); width: max-content;}
         @keyframes blink-text { 0% { opacity: 1; } 100% { opacity: 0.5; } }
 
     </style>
@@ -147,44 +167,20 @@
         <section>
             <h2>당신의 현금은 중요하지 않습니다</h2>
             <div class="grid-2">
-                <div class="check-item">
-                    <b>💸 본인부담 0원</b>
-                    <span>계약금~잔금 해결</span>
-                </div>
-                <div class="check-item">
-                    <b>🙅‍♂️ 청약통장 無</b>
-                    <span>없어도 컨설팅 가능</span>
-                </div>
-                <div class="check-item">
-                    <b>📝 청약/전매/세금/소명</b>
-                    <span> 100% 케어 가능</span>
-                </div>
-                <div class="check-item" style="border-color:var(--red); background:#fff5f5;">
-                    <b style="color:var(--red);">⚡ 1:1 밀착관리</b>
-                    <span>당첨될 때까지 책임</span>
-                </div>
+                <div class="check-item"><b>💸 본인부담 0원</b><span>계약금~잔금 해결</span></div>
+                <div class="check-item"><b>🙅‍♂️ 청약통장 無</b><span>없어도 컨설팅 가능</span></div>
+                <div class="check-item"><b>📝 청약/전매/세금/소명</b><span> 100% 케어 가능</span></div>
+                <div class="check-item" style="border-color:var(--red); background:#fff5f5;"><b style="color:var(--red);">⚡ 1:1 밀착관리</b><span>당첨될 때까지 책임</span></div>
             </div>
         </section>
 
         <section>
             <h2>이런 분들은 무조건 신청하세요</h2>
             <div class="grid-2 target-grid-container">
-                <div class="target-item">
-                    <h3>💍 신혼부부</h3>
-                    <p>자녀 2세 이하 / 소득 140%↓</p>
-                </div>
-                <div class="target-item">
-                    <h3>🐣 생애최초</h3>
-                    <p>세대원 무주택 / 소득 160%↓</p>
-                </div>
-                <div class="target-item">
-                    <h3>👨‍👩‍👧‍👦 다자녀</h3>
-                    <p>만 19세미만 자녀 2명이상</p>
-                </div>
-                <div class="target-item">
-                    <h3>🎖 기관추천</h3>
-                    <p>장애인, 군인, 국가유공자</p>
-                </div>
+                <div class="target-item"><h3>💍 신혼부부</h3><p>자녀 2세 이하 / 소득 140%↓</p></div>
+                <div class="target-item"><h3>🐣 생애최초</h3><p>세대원 무주택 / 소득 160%↓</p></div>
+                <div class="target-item"><h3>👨‍👩‍👧‍👦 다자녀</h3><p>만 19세미만 자녀 2명이상</p></div>
+                <div class="target-item"><h3>🎖 기관추천</h3><p>장애인, 군인, 국가유공자</p></div>
             </div>
         </section>
 
@@ -194,19 +190,10 @@
                 <span style="font-size:0.8rem; color:#888;"> 25년경력 청약전문가의 컨설팅</span>
             </div>
             <div class="review-list">
-                <div class="review-box">
-                    <span class="review-tag">생애최초 당첨 <span class="stars">★★★★★</span></span>
-                    "모아둔 돈이 없어서 막막했는데, 자금 계획부터 완벽하게 짜주셔서 <b>제 돈 안 들이고  </b>했습니다."
-                </div>
-                <div class="review-box">
-                    <span class="review-tag">신혼부부 특공 <span class="stars">★★★★★</span></span>
-                    "계속 떨어져서 맡겼는데 원하던 아파트에<b> 한 번에 당첨</b>됐어요! 남편이 정말 좋아합니다."
-                </div>
-          <div class="review-box">
-                    <span class="review-tag">장애 특공 <span class="stars">★★★★★</span></span>
-                    "기초수급 끊길까 봐 걱정되서 컨설팅 의뢰했는데 <b>한 번에 해결</b>됐어요! ."
-                </div>
-   </div>
+                <div class="review-box"><span class="review-tag">생애최초 당첨 <span class="stars">★★★★★</span></span>"모아둔 돈이 없어서 막막했는데, 자금 계획부터 완벽하게 짜주셔서 <b>제 돈 안 들이고</b> 했습니다."</div>
+                <div class="review-box"><span class="review-tag">신혼부부 특공 <span class="stars">★★★★★</span></span>"계속 떨어져서 맡겼는데 원하던 아파트에<b> 한 번에 당첨</b>됐어요! 남편이 정말 좋아합니다."</div>
+                <div class="review-box"><span class="review-tag">장애 특공 <span class="stars">★★★★★</span></span>"기초수급 끊길까 봐 걱정되서 컨설팅 의뢰했는데 <b>한 번에 해결</b>됐어요!"</div>
+            </div>
         </section>
 
         <section style="background: white;">
@@ -216,12 +203,22 @@
                 <span class="safe-badge">🛡️ 세금/자금/실가 소명 완벽 대비</span>
             </div>
         </section>
+
+        <footer class="footer-biz-info">
+            <div class="biz-text">
+                <b>맛있는부동산공인중개사사무소</b> | 대표 정우재<br>
+                부산 남구 우암로 180 | 사업자 123-56-00144 | Tel: 010-4578-7058
+            </div>
+            <div class="main-consulting-text">
+                전국청약 무료 컨설팅
+            </div>
+        </footer>
     </div>
 
     <div class="sticky-btn">
         <span class="blink-text">⏳청약 당첨! 한방에 해결됩니다 </span>
         <a href="https://open.kakao.com/o/sXXXXXXXX" class="btn-kakao">
-            <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png" width="26" alt="카톡">
+            <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png" width="22" alt="카톡">
             전국 청약컨설팅 카톡1:1 문의하기
         </a>
         <a href="https://naver.me/57QqTQ2n" class="btn-naver">
